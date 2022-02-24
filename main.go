@@ -23,7 +23,8 @@ func SetupRouter() *gin.Engine {
 	gin.SetMode(gin.ReleaseMode)
 
 	router := gin.Default()
-	router.POST("/sh", controller.ExecuteShell)
+	router.POST("/sh", controller.ExecuteShShell)
+	router.POST("/execShell", controller.ExecuteShell)
 
 	return router
 }

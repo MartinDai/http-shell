@@ -35,11 +35,24 @@ docker run --name http-shell -p 8080:8080 -d http-shell:latest
 
 ### /sh
 
-`/sh`接口支持使用sh命令指定的脚本
+`/sh`接口支持使用sh命令运行指定的脚本
 
 使用示例
 ```
 curl --request POST 'http://127.0.0.1:8080/sh' \
+--header 'Content-Type: application/json' \
+--data '{
+    "shellPath":"/Users/martin/Downloads/test.sh"
+}'
+```
+
+### /execShell
+
+`/execShell`接口支持运行指定的脚本
+
+使用示例
+```
+curl --request POST 'http://127.0.0.1:8080/execShell' \
 --header 'Content-Type: application/json' \
 --data '{
     "shellPath":"/Users/martin/Downloads/test.sh"
